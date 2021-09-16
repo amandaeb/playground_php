@@ -1,0 +1,42 @@
+1. when half width, there is a margin on
+the left of the whole page CHECK
+2. only the cart icon gets a highlight whenhovered over CHECK
+4. the icons are too far to the left CHECK
+* the hamburger is too far to the left CHECK
+*the hamburger menu comes out on top and to the left SORTA CHECK (title moves)
+3. the intro paragraph overlaps picture in smaller CHECK
+screens
+4. how to make a vertical carousel CHECK
+5. tetsimonials are not attractive
+6. the footer does not cover the whole width
+of the page
+7.change mobile .drop-down-menu so that
+the menu shows when clicked instead ofhover (obviously)
+8. lots of changes for mobile
+
+**********Responsiveness*********
+Pictures: 
+    a.use percentages with media queries CHECK
+    b. use picture tag with srcset???
+Font:
+object fit????
+  
+*********php base_url and root_path*******
+1.path.php
+  a.define("ROOT_PATH",realpath(dirname('_FILE_'))); 
+  b.BASE_URL
+
+****connect database****
+1.connect.php
+2.create reuseable sql query functions
+
+
+****css lessons learned****
+1. always put a display type on main-wrap
+so that every page can have grid or flex on it
+an put content in specific wrap like "general-wrap"
+and "form-wrap"
+
+*****PHP security****
+1. password encryption:
+   $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
