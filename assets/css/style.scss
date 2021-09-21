@@ -190,9 +190,6 @@
     align-items: center;
     margin: .2rem auto;
     border-radius: 5px;
-    ul{
-      display:none;
-    }
   }
   
   .cart:hover {
@@ -201,9 +198,6 @@
   
   .account:hover {
     background-color: plum;
-    ul{
-      display:grid;
-    }
   }
 
   .customer-needs a {

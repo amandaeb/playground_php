@@ -37,17 +37,22 @@ require (ROOT_PATH . '/controllers/products.php');
                 </div>
                 <div class="content">
                     <h2 class="page-title">Add Products</h2>
-                    <form action="create.php" method="post">
+                    <?php include(ROOT_PATH . '/helpers/formErrors.php');?>
+                    <form action="create.php" method="post" enctype="multipart/form-data">
                         <div>
                             <label>Name</label>
                             <input type="text" name="name" class="text-input">
                         </div>
                         <div>
                             <label>Type</label>
-                            <select name="type" class="text-input">
+                            <select name="type_id" class="text-input">
                                 <option value=""></option>
                                 <?php foreach($types as $key => $type): ?>
-                                <option value="<?php echo $type['name']; ?>"><?php echo $type['name']; ?></option>
+                                    <?php if (!empty($type_id) && $type_id == $type['id']): ?>
+                                        <option selected value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+                                    <?php else: ?>
+                                        <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+                                    <?php endif; ?>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -62,6 +67,15 @@ require (ROOT_PATH . '/controllers/products.php');
                         <div>
                             <label>Image</label>
                             <input type="file" name="image" class="text-input">
+                        </div>
+                        <div>
+                        <?php if (empty($published)): ?>
+                            <label>Add to Catalog</label>
+                            <input type="checkbox" name="publish">
+                        <?php else: ?>
+                            <label>Add to Catalog</label>
+                            <input type="checkbox" name="publish" checked>
+                        <?php endif; ?>
                         </div>
                         <div>
                             <button type="submit" class="btn btn-big" name="add-product">Add Product</button>

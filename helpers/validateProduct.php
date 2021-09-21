@@ -1,12 +1,20 @@
 <?php
-function validateType($type){
+
+function validateProduct($product){
     $errors = array();
-    if(empty($type['name'])){
+    if(empty($product['name'])){
         array_push($errors, 'name is required');
     }
-    $existingType = selectOne('types', ['name' => $type['name']]);
-    if($existingType){
-        array_push($error, 'that type is already in use');
+
+    if(empty($product['sku'])){
+        array_push($errors, 'must enter a SKU');
+    }
+    if(empty($product['price'])){
+        array_push($errors, 'must enter a price');
+    }
+    $existingproduct = selectOne('product', ['sku' => $product['sku']]);
+    if(isset($existingproduct)){
+        array_push($errors, 'sku is already in use');
     }
     return $errors;
 }

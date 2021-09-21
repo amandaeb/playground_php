@@ -2,7 +2,7 @@
 require (ROOT_PATH . '/db/db.php'); 
 require (ROOT_PATH . '/helpers/validateType.php'); 
 
-$table = 'types';
+$table = 'type';
 $types = selectAll($table);
 $errors = array();
 

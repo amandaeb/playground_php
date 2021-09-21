@@ -40,3 +40,25 @@ and "form-wrap"
 *****PHP security****
 1. password encryption:
    $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+2. sql plaintext
+  $_POST['body'] = html_entities($_POST['body'])
+
+*******for the playground site*****
+1. i might want to add a publish function 
+in order to publish the products to the catalog
+  in index.php
+    <?php if($product['published']): ?>
+    <td><a href="#" class="unpublish">unpublish</a></td>
+    <?php else: ?>
+    <td><a href="#" class="publish">publish</a></td>
+    <?php endif; ?>
+
+    and in products.php
+    $_POST['published'] = isset($_POST['published]) ? 1 : 0; 
+
+    and
+
+    $published = '';
+    $published = isset($_POST['published']) ? 1 : 0;
+
+

@@ -1,4 +1,5 @@
-<?php require ('.\path.php'); ?>
+<?php require ('.\path.php'); 
+require (ROOT_PATH . '/db/db.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

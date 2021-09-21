@@ -47,15 +47,16 @@ require (ROOT_PATH . '/controllers/products.php');
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2</td>
-                                <td>This is the second post</td>
-                                <td>Melvine</td>
-                                <td>lgttw001</td>
+                            <?php foreach($products as $key => $product): ?>
+                                <tr>
+                                <td><?php echo $product['name'] ?></td>
+                                <td><?php echo '$type;' ?></td>
+                                <td>$<?php echo $product['price'] ?></td>
+                                <td><?php echo $product['sku'] ?></td>
                                 <td><a href="edit.php" class="edit">edit</a></td>
                                 <td><a href="delete.php" class="delete">delete</a></td>
-                                <td><a href="#" class="publish">publish</a></td>
                             </tr>
+                            <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>        
