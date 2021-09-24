@@ -1,5 +1,5 @@
 <?php require ('..\..\path.php'); 
-require (ROOT_PATH . '/controllers/types.php'); ?>
+require (ROOT_PATH . '/controllers/products.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +25,9 @@ require (ROOT_PATH . '/controllers/types.php'); ?>
     <?php require_once (ROOT_PATH . '/includes/header.php'); ?>
 
         <!-- Admin Page Wrapper -->
-        <div class="main-wrap">
-        <?php require_once (ROOT_PATH . '/includes/adminSidebar.php'); ?>   
+        <div class="main-wrap"> 
+        <div class="admin-wrapper">
+        <?php require_once (ROOT_PATH . '/includes/adminSidebar.php'); ?>  
             <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
@@ -34,19 +35,29 @@ require (ROOT_PATH . '/controllers/types.php'); ?>
                     <a href="index.php" class="btn btn-big">Manage Products</a>
                 </div>
                 <div class="content">
-                    <h2 class="page-title">Manage Products</h2>
-                    <form action="edit.php" method="post">
+                    <h2 class="page-title">Edit Product</h2>
+                    <form action="edit.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
                         <div>
                             <label>Name</label>
-                            <input type="text" name="name" class="text-input">
+                            <input type="text" name="name" class="text-input" value="<?php echo $name; ?>">
                         </div>
                         <div>
                             <label>Type</label>
-                            <textarea name="type" id="text"></textarea>
+                            <select name="type_id" class="text-input">
+                                <option value=""></option>
+                                <?php foreach($types as $key => $type): ?>
+                                    <?php if (!empty($type_id) && $type_id == $type['id']): ?>
+                                        <option selected value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+                                    <?php else: ?>
+                                        <option value="<?php echo $type['id']; ?>"><?php echo $type['name']; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div>
                             <label>SKU</label>
-                            <input type="text" name="sku" class="text-input">
+                            <input type="text" name="sku" class="text-input" value="<?php echo $sku; ?>">
                         </div>
                         <div>
                             <label>Image</label>
@@ -54,10 +65,10 @@ require (ROOT_PATH . '/controllers/types.php'); ?>
                         </div>
                         <div>
                             <label>Price</label>
-                            <input type="text" name="price" class="text-input">
+                            <input type="text" name="price" class="text-input" value="<?php echo $price; ?>">
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-big">Add Post</button>
+                            <button type="submit" name="update-product" class="btn btn-big">Update Product</button>
                         </div>
                     </form>
 
@@ -65,7 +76,7 @@ require (ROOT_PATH . '/controllers/types.php'); ?>
 
             </div>
             <!-- // Admin Content -->
-
+        </div>
         </div>
         <!-- // Page Wrapper -->
 

@@ -44,6 +44,7 @@ and "form-wrap"
   $_POST['body'] = html_entities($_POST['body'])
 
 *******for the playground site*****
+episode #25 php,mysql blog
 1. i might want to add a publish function 
 in order to publish the products to the catalog
   in index.php
@@ -60,5 +61,10 @@ in order to publish the products to the catalog
 
     $published = '';
     $published = isset($_POST['published']) ? 1 : 0;
+  in edit.php
+
+******problems*****
+if i add this in vallidateProduct,
+then the update doesn't work becuase thisname is already in use?
 
 

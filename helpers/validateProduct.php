@@ -12,9 +12,5 @@ function validateProduct($product){
     if(empty($product['price'])){
         array_push($errors, 'must enter a price');
     }
-    $existingproduct = selectOne('product', ['sku' => $product['sku']]);
-    if(isset($existingproduct)){
-        array_push($errors, 'sku is already in use');
-    }
     return $errors;
 }

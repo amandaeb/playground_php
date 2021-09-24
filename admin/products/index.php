@@ -50,10 +50,10 @@ require (ROOT_PATH . '/controllers/products.php');
                             <?php foreach($products as $key => $product): ?>
                                 <tr>
                                 <td><?php echo $product['name'] ?></td>
-                                <td><?php echo '$type;' ?></td>
+                                <td><?php echo $type_id; ?></td>
                                 <td>$<?php echo $product['price'] ?></td>
                                 <td><?php echo $product['sku'] ?></td>
-                                <td><a href="edit.php" class="edit">edit</a></td>
+                                <td><a href="edit.php?id=<?php echo $product['id']; ?>" class="edit">edit</a></td>
                                 <td><a href="delete.php" class="delete">delete</a></td>
                             </tr>
                             <?php endforeach;?>
